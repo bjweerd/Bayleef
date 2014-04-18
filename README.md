@@ -8,3 +8,6 @@ cloud 9 project url: https://c9.io/jheuvel/bayleef1
 github repository url: https://github.com/kamintears/Bayleef
 
 tutorial example files: https://github.com/joeeames/MEANAppsFiles
+
+
+All the bugs have been fixed.
