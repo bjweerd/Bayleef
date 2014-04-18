@@ -1,0 +1,18 @@
+{
+  "name": "MultiVision",
+  "version": "0.1.0",
+  "homepage": "https://github.com/kamintears/Bayleef",
+  "authors": [
+    "Jochem van den Heuvel <cloud9@jvdheuvel.net>"
+  ],
+  "description": "\"Mean Test Project\"",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "toastr": "~2.0.1",
+    "angular": "~1.2.16",
+    "angular-resource": "~1.2.16",
+    "angular-route": "~1.2.16"
+  }
+}
