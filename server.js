@@ -31,15 +31,19 @@ app.use(bodyParser());
 
 
 // database spul
+var connectString = "";
 if (env == "development")
-    mongoose.connect('mongodb://localhost/bayleef');
+    connectString = 'mongodb://localhost/bayleef';
 else
-   mongoose.connect('mongodb://jheuvel:hello@ds047197.mongolab.com:47197/bayleef');
+   connectString = 'mongodb://jheuvel:hello@ds047197.mongolab.com:47197/bayleef';
+
+mongoose.connect(connectString);
+
     
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error with mongoose...'));
 db.once('open', function callback() {
-    console.log('bayleef db opened :)');
+    console.log("bayleef db at [ " + connectString + " ] opened");
 });
 var messageSchema = mongoose.Schema({message:String});
 var Message = mongoose.model('Message', messageSchema);
