@@ -6,8 +6,8 @@ var mongoose = require('mongoose');
 
 var env  = process.env.NODE_ENV = process.env.NODE_ENV || "development";
 var app  = express();
-var port = 8080;
 
+var port = process.env.PORT || 3030;
 
 function compile(str, path) 
 {
@@ -31,7 +31,11 @@ app.use(bodyParser());
 
 
 // database spul
-mongoose.connect('mongodb://localhost/bayleef');
+//if (env == "development")
+//    mongoose.connect('mongodb://localhost/bayleef');
+//else
+   mongoose.connect('mongodb://jheuvel:hello@ds047197.mongolab.com:47197/bayleef');
+    
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error with mongoose...'));
 db.once('open', function callback() {
@@ -43,6 +47,7 @@ var mongoMessage;
 Message.findOne().exec(function(err, messageDoc) {
     mongoMessage = messageDoc.message;
 });
+
 
 app.get('/partials/:partialPath', function(req,res) {
     res.render('partials/' + req.params.partialPath);
