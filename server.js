@@ -31,9 +31,9 @@ app.use(bodyParser());
 
 
 // database spul
-//if (env == "development")
-//    mongoose.connect('mongodb://localhost/bayleef');
-//else
+if (env == "development")
+    mongoose.connect('mongodb://localhost/bayleef');
+else
    mongoose.connect('mongodb://jheuvel:hello@ds047197.mongolab.com:47197/bayleef');
     
 var db = mongoose.connection;
