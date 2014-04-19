@@ -2,7 +2,9 @@ var express = require('express');
 var stylus = require('stylus');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var logger = require('morgan');
+var passport = require('passport');
 
 module.exports = function(app, config) 
 {
@@ -20,7 +22,7 @@ module.exports = function(app, config)
     app.use(cookieParser());
     app.use(bodyParser());
 
-    app.use(express.session({secret:'bad mean unicorns'}));
+    app.use(session({secret:'bad mean unicorns'}));
     app.use(passport.initialize());
     app.use(passport.session());
 
