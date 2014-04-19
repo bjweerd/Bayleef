@@ -1,5 +1,0 @@
-script("text/javascript", src="/vendor/jquery/jquery.js")
-script("text/javascript", src="/vendor/angular/angular.js")
-script("text/javascript", src="/vendor/angular/angular-resource.js")
-script("text/javascript", src="/vendor/angular/angular-route.js")
-
