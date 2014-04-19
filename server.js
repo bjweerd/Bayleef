@@ -2,13 +2,12 @@ var express = require('express');
 var stylus = require('stylus');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 var env  = process.env.NODE_ENV = process.env.NODE_ENV || "development";
 var app  = express();
 var port = 8080;
 
-var log = logger('dev');
-var bp = bodyParser();
 
 function compile(str, path) 
 {
@@ -24,8 +23,16 @@ app.use(stylus.middleware (
 	compile: compile
     }));
 app.use(express.static(__dirname + '/public'));
-app.use(log);
-app.use(bp);
+app.use(logger('dev'));
+app.use(bodyParser());
+
+
+mongoose.connect('mongodb://localhost/bayleef');
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error with mongoose...'));
+db.once('open', function callback() {
+    console.log('bayleef db opened :)');
+});
 
 app.get('/partials/:partialPath', function(req,res) {
     res.render('partials/' + req.params.partialPath);
