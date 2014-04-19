@@ -31,6 +31,7 @@ app.use(bodyParser());
 
 
 // database spul
+console.log("env variable is: " + env);
 var connectString = "";
 if (env == "development")
     connectString = 'mongodb://localhost/bayleef';
