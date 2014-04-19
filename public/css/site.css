@@ -4,9 +4,10 @@ body {
 .navbar-header a.navbar-brand {
   margin-top: -16px;
   margin-bottom: -21px;
+  margin-left: 64px;
 }
 .navbar-header a.navbar-brand h6 {
-  color: #ccc;
+  color: #afb43e;
 }
 footer {
   padding-left: 16px;
@@ -14,4 +15,10 @@ footer {
 }
 footer p {
   border-top: 2px solid #73ef5b;
+}
+.navbar-form .form-group {
+  margin-left: 10px;
+}
+.navbar-form button {
+  margin-left: 10px;
 }
