@@ -3,7 +3,6 @@ angular.module('app').controller('mvNavBarLoginCtrl', function($scope, $http) {
     $scope.password='';
     $scope.signin = function(username, password) {
 
-
     	var data = {
             username: username,
             password: password

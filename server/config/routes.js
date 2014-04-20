@@ -18,7 +18,7 @@ module.exports = function(app) {
 		    });
 		});
 		auth(req, res, next);
-	    });
+	});
 	    
 	app.get('*', function(req, res) {
 		res.render('index');
