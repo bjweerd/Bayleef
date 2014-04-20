@@ -2,7 +2,6 @@ var passport = require('passport');
 
 module.exports = function(app) {
     app.get('/partials/*', function(req,res) {
-	console.log(req.params[0]);
 	res.render('../../public/app/' + req.params[0]);
     });
 
@@ -17,7 +16,7 @@ module.exports = function(app) {
 	});
 	auth(req, res, next);
     });
-    
+
     app.get('*', function(req, res) {
 	res.render('index');
     });
