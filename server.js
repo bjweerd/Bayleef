@@ -1,6 +1,8 @@
 var express = require('express');
-var passport = require('passport');
+
 var mongoose = require('mongoose');
+var passport = require('passport');
+
 var LocalStrategy = require('passport-local').Strategy; // there is also facebook google twitter etc
 
 var env  = process.env.NODE_ENV = process.env.NODE_ENV || "development";
@@ -15,13 +17,14 @@ require('./server/config/mongoose')(config);
 var User = mongoose.model('User');
 passport.use(new LocalStrategy(
     function(username, password, done) {
-	User.findOne({userName:username}).exec(function(err, user) {
-	    if (user) {
-		return done(null,user);
-	    } else {
-		return done(null,false);
-	    }
-	})
+		User.findOne({userName:username}).exec(function(err, user) {
+
+		    if (user) {
+			return done(null,user);
+		    } else {
+			return done(null,false);
+		    }
+		})
     }
 ));
 
